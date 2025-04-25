@@ -1,4 +1,15 @@
-<?php include "nav/header.php"; ?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>My HTML Page</title>
+</head>
+
+<body>
+    <!-- Placeholder for header -->
+    <div id="header"></div>
+
 
 <main>
     <div class="container py-5">
@@ -320,6 +331,9 @@
     }
 </style>
 
+    <!-- Placeholder for footer -->
+    <div id="footer"></div>
+
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         // Smooth scroll to membership steps when button is clicked
@@ -344,4 +358,15 @@
     });
 </script>
 
-<?php include "nav/footer.php"; ?>
+<script>
+    // Load header
+    fetch('nav/header.html')
+        .then(res => res.text())
+        .then(data => document.getElementById('header').innerHTML = data);
+
+    // Load footer
+    fetch('nav/footer.html')
+        .then(res => res.text())
+        .then(data => document.getElementById('footer').innerHTML = data);
+</script>
+</body>
