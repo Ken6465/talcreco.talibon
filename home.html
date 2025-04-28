@@ -24,7 +24,8 @@
                                         <li><i class="bi bi-check-circle-fill text-success me-2"></i>Youth Savings
                                             Program</li>
                                     </ul>
-                                    <a href="#" class="btn btn-outline-primary mt-3">Learn More</a>
+                                    <button type="button" class="btn btn-outline-primary mt-3 popover-btn"
+                                        data-bs-toggle="popover" data-bs-content="Coming Soon">Learn More</button>
                                 </div>
                             </div>
                         </div>
@@ -35,20 +36,28 @@
                                     <h3 class="card-title mt-3">Loans</h3>
                                     <p class="card-text">Flexible loan options tailored to meet your needs.</p>
                                     <ul class="list-unstyled text-start">
-                                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Barangay Officials Loan</li>
+                                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Barangay Officials
+                                            Loan</li>
                                         <li><i class="bi bi-check-circle-fill text-success me-2"></i>Salary Loan
                                         </li>
                                         <li><i class="bi bi-check-circle-fill text-success me-2"></i>Express Loan</li>
                                         <li><i class="bi bi-check-circle-fill text-success me-2"></i>Financing Loan</li>
                                         <li><i class="bi bi-check-circle-fill text-success me-2"></i>Regular Loan</li>
-                                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>SSS/GSIS/Pensioner's Loan</li>
-                                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Provident/Healthcare Loan</li>
-                                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Educational Loan</li>
-                                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Micro-Finance Loan</li>
+                                        <li><i
+                                                class="bi bi-check-circle-fill text-success me-2"></i>SSS/GSIS/Pensioner's
+                                            Loan</li>
+                                        <li><i
+                                                class="bi bi-check-circle-fill text-success me-2"></i>Provident/Healthcare
+                                            Loan</li>
+                                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Educational Loan
+                                        </li>
+                                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Micro-Finance Loan
+                                        </li>
 
 
                                     </ul>
-                                    <a href="#" class="btn btn-outline-primary mt-3">Learn More</a>
+                                    <button type="button" class="btn btn-outline-primary mt-3 popover-btn"
+                                        data-bs-toggle="popover" data-bs-content="Coming Soon">Learn More</button>
                                 </div>
                             </div>
                         </div>
@@ -67,7 +76,8 @@
                                         <li><i class="bi bi-check-circle-fill text-success me-2"></i>Member Dividends
                                         </li>
                                     </ul>
-                                    <a href="#" class="btn btn-outline-primary mt-3">Learn More</a>
+                                    <button type="button" class="btn btn-outline-primary mt-3 popover-btn"
+                                        data-bs-toggle="popover" data-bs-content="Coming Soon">Learn More</button>
                                 </div>
                             </div>
                         </div>
@@ -372,5 +382,26 @@
 
         ctaButton.classList.add(randomAnimation);
         ctaButton.style.animationDelay = '0.8s';
+
+        // Initialize popovers
+        var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+        var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+            return new bootstrap.Popover(popoverTriggerEl, {
+                trigger: 'click',
+                placement: 'top'
+            });
+        });
+
+        // Close popover when clicking outside
+        document.addEventListener('click', function (event) {
+            if (!event.target.closest('[data-bs-toggle="popover"]')) {
+                popoverTriggerList.forEach(function (popover) {
+                    var instance = bootstrap.Popover.getInstance(popover);
+                    if (instance) {
+                        instance.hide();
+                    }
+                });
+            }
+        });
     });
 </script>
